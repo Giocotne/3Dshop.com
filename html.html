@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Sample products data
+    const productsData = [
+        { id: 1, name: "Product 1", price: 10, image: "product1.jpg" },
+        { id: 2, name: "Product 2", price: 20, image: "product2.jpg" },
+        { id: 3, name: "Product 3", price: 15, image: "product3.jpg" }
+    ];
+
+    const productsContainer = document.getElementById("products");
+
+    // Function to render products
+    function renderProducts(products) {
+        productsContainer.innerHTML = "";
+        products.forEach(product => {
+            const productElement = document.createElement("div");
+            productElement.classList.add("product");
+            productElement.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p>Price: $${product.price}</p>
+                <button class="btn">Add to Cart</button>
+            `;
+            productsContainer.appendChild(productElement);
+        });
+    }
+
+    // Render initial products
+    renderProducts(productsData);
+});
+
+  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D printer pencils shop</title>
+<p><div class="textInputWrapper">
+    <input placeholder="name" type="text" class="textInput">
+</div></p>
+<p><div class="textInputWrapper">
+    <input placeholder="full address" type="text" class="textInput">
+</div></p>
+<p><div class="textInputWrapper">
+    <input placeholder="Phone number" type="text" class="textInput">
+</div></p>
+<button class="button">
+    20$
+    <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+      <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+    </svg>
+  </button>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    .item {
+        flex-basis: 30%;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .item:hover {
+        transform: translateY(-5px);
+    }
+    .item img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    .item h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+    .item p {
+        font-size: 1em;
+        color: #666;
+    }
+    .textInputWrapper {
+        position: absolute;
+        top: 0%;
+        bottom: 100%;
+  position: relative;
+  width: 180px;
+  margin: 12px 5px;
+  --accent-color: #a3e583;
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.textInputWrapper .textInput {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 36px;
+  background-color: #252525;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  width: 100%;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+.button {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: rgb(0 107 179);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  border-color: #fff9;
+}
+
+.button:hover .icon {
+  transform: translate(4px);
+}
+
+.button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+  <video width="240" height="426" controls>
+    <source src="To buy, go to the link in the bio.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <div class="overlay">
+    
+    </div>
+  </div>
+<div class="container">
+    <div class="item">
+        <img src="pen 1.webp" alt="Image 1">
+        <h2>Description:</h2>
+        <p>Introducing the revolutionary 3D Printer Pen, your gateway to limitless creativity! This innovative tool allows you to bring your imagination to life by drawing in three dimensions. Whether you're an artist, hobbyist, educator, or DIY enthusiast, the 3D Printer Pen opens up a world of possibilities for creating intricate designs, prototypes, decorations, and more.</p>
+    </div>
+    <div class="item">
+        <img src="pen 2.webp" alt="Image 2">
+        <h2>Key Features:</h2>
+        <p>1.Easy to Use: Simply plug in the pen, insert your choice of filament, and start drawing. The intuitive controls make it suitable for users of all skill levels.</p>
+
+          <p> 2. Versatile: Create complex shapes, models, and sculptures with ease. The adjustable temperature and speed settings provide precise control over your designs.</p>
+            <p>3.Safe and Environmentally Friendly: The pen uses biodegradable and non-toxic PLA filament, ensuring safety for both users and the environment.</p>
+            <p>4.Portable: Compact and lightweight design allows you to unleash your creativity anywhere, whether at home, school, or on the go.</p>
+           
+    </div>
+    <div class="item">
+        <img src="pen 3.jpg" alt="Image 3">
+        <h2>Package Includes:</h2>
+        <p>
+            1 x 3D Printer Pen</p>
+           <p> 1 x Power Adapter</p>
+           <p> 1 x Filament Sample Pack</p>
+           <p> 1 x User Manual</p>
